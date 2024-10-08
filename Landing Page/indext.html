@@ -4,27 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Map</title>
+     <link rel="icon" href="assets/favicon.jpeg" sizes="64x64" type="image/png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <navbar class="nav">
-        <a>
-            <img src="assets/logo.png" alt="Mood Map Logo">
+        <div class="head1">
+            <a href="#">
+                <img src="assets/logo.png" alt="Mood Map Logo" >
+            </a>
+            <div class="main-nav">
+            <a href="#">Home</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Quizes</a>
+            <a href="#">Your Doctor</a>
+            <a href="#">Heeling Huddles</a>
+            <a href="#">Feedback</a>
+            <a href="#">Contact Us</a>
+
+        </div>
             
-        </a>
+        </div>
+       
     </navbar>
     <div class="page1">
         <video src="./assets/landing video.mp4" autoplay muted loop></video>
         <div class="heading">
-            <h1>
-                Your Path to <br>Mental Wellness
+            <h1 class="head1">
+                Your Path to 
             </h1>
+            <h1 class="head2">
+                Mental Wellness
+            </h1>
+            <button>Get Started</button>
         </div>
     </div>
     <div class="page2">
 
     </div>
-     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

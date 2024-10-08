@@ -56,17 +56,148 @@ video {
 .heading {
     font-family: Euro;
     position: absolute;
-    top: 28%;
+    top: 38%;
     left: 13%;
     width: fit-content;
 }
 
+.head1,
+.head2 {
+    margin: 0vw 0;
+}
+
 .heading h1 {
     font-size: 6vw;
-    color: #8FBC8F;
+    color: #f0f0f0;
     text-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
     text-align: center;
     letter-spacing: .8vw;
     text-transform: uppercase;
 }
 
+@media (max-width: 780px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    navbar a img {
+        height: 12vw;
+        margin-top: 2vw;
+    }
+
+    .page1 {
+        align-items: flex-start;
+        /* padding-top: 80px; */
+        /* To provide space for the navbar */
+    }
+
+    video {
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .heading {
+        top: 35%;
+        left: 8%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .head1,
+    .head2 {
+        margin: 0;
+    }
+
+    .heading h1 {
+        font-size: 8vw;
+        letter-spacing: 0.5vw;
+    }
+}
+
+@media (max-width: 430px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    navbar a img {
+        height: 16vw;
+        margin-top: 3vw;
+    }
+
+    .page1 {
+        align-items: flex-start;
+        /* padding-top: 60px; */
+        /* To provide space for the navbar */
+    }
+
+    video {
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .heading {
+        top: 38%;
+        left: 5%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .head1,.head2 {
+        margin: 0;
+    }
+
+    .heading h1 {
+        font-size: 10vw;
+        letter-spacing: 0.3vw;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    navbar a img {
+        height: 18vw;
+        margin-top: 4vw;
+    }
+
+    .page1 {
+        align-items: flex-start;
+        /* padding-top: 60px; */
+        /* To provide space for the navbar */
+    }
+
+    video {
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    .heading {
+        top: 38%;
+        left: 5%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .heading h1 {
+        font-size: 12vw;
+        letter-spacing: 0.2vw;
+        line-height: 1.2;
+    }
+}
+
+.heading button {
+    position: relative;
+    left: 40%;
+    margin-top: 2.5vw;
+    background: #1e7109;
+    color: #fff;
+    font-size: 1.8vw;
+    border: none;
+    font-family: Euro;
+    padding: .8vw 1vw;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
