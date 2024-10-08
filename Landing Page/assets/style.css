@@ -191,13 +191,66 @@ video {
     position: relative;
     left: 40%;
     margin-top: 2.5vw;
-    background: #1e7109;
+    background: linear-gradient(150rad, #309c15, #6af249,#24770f );
     color: #fff;
     font-size: 1.8vw;
     border: none;
     font-family: Euro;
-    padding: .8vw 1vw;
-    border-radius: 5px;
+    padding: .8vw 1.2vw;
+    border-radius: 1.5rem;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    transition: size 0.5s ease-in-out;
+}
+
+.heading button:hover{
+    background: linear-gradient(135rad, #d2fc38, #196506);
+    transform: scale(1.01);
+}
+
+.main-nav{
+    position: absolute;
+    top: 10vw;
+    left: -35vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 45vw;
+    z-index: 2;
+    display: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: .6vw;
+    font-size: 3.4vw;
+    /* margin-bottom: 2vw; */
+    font-family: EuroBold;
+    transition: color 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+    color: #6af249;
+    font-size: 3.6vw;
+    cursor: pointer;
+}
+
+.page1 {
+    /* Other styles */
+    transition: filter 0.2s ease-in-out;
+    /* Adds a smooth transition for the blur effect */
+}
+
+
+
+
+
+.main-nav {
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Animation for opacity and transform */
 }
