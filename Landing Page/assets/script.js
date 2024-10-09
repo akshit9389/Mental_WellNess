@@ -35,22 +35,20 @@ function adjustNavbSize() {
 // Call this function on page load to set the correct size
 adjustNavbSize();
 
-icon.addEventListener("click", (event) => {
-    event.preventDefault();
-    if (navb.style.display === "none" || navb.style.display === "") {
-        navb.style.display = "flex";
-        setTimeout(() => {
-            navb.style.opacity = "1";
-            navb.style.transform = "translateY(0)";
-            page.style.filter = "blur(8px)";
-            adjustNavbSize();
-        }, 10);
-    } else {
-        navb.style.opacity = "0";
-        navb.style.transform = "translateY(-20px)";
-        setTimeout(() => {
-            navb.style.display = "none";
-        }, 500);
-        page.style.filter = "none";
-    }
+icon.addEventListener("click", () => {
+  if (navb.style.display === "none" || navb.style.display === "") {
+    navb.style.display = "flex";
+    setTimeout(() => {
+      navb.style.opacity = "1";
+      navb.style.transform = "translateY(0)";
+      page1.style.filter = "blur(8px)";
+    }, 10); // Slight delay to allow display to take effect before animating
+  } else {
+    navb.style.opacity = "0";
+    navb.style.transform = "translateY(-20px)";
+    setTimeout(() => {
+      navb.style.display = "none";
+    }, 500);
+    page1.style.filter = "none";
+  }
 });
