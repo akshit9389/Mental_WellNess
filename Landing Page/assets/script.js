@@ -41,7 +41,7 @@ icon.addEventListener("click", () => {
     setTimeout(() => {
       navb.style.opacity = "1";
       navb.style.transform = "translateY(0)";
-      page1.style.filter = "blur(8px)";
+      page.style.filter = "blur(8px)";
     }, 10); // Slight delay to allow display to take effect before animating
   } else {
     navb.style.opacity = "0";
@@ -49,6 +49,6 @@ icon.addEventListener("click", () => {
     setTimeout(() => {
       navb.style.display = "none";
     }, 500);
-    page1.style.filter = "none";
+    page.style.filter = "none";
   }
 });
