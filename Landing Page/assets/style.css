@@ -52,9 +52,11 @@ navbar a img:hover{
 }
 
 .logo-small {
-    height: 4vw;
-    margin-left: auto; 
+    height: 4vw; 
     transition: height 0.5s ease-in-out;
+    border: 3px solid #1c8303;
+    border-radius: 5px;
+    transform: translateX(500%);
 }
 
 
