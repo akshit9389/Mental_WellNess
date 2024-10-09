@@ -17,6 +17,18 @@ body {
     margin: 0;
 }
 
+body::-webkit-scrollbar {
+    width: 0;
+    /* Hide scrollbar in WebKit browsers */
+    background: transparent;
+    /* Optional: to make it invisible */
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
 navbar {
     background: transparent;
     display: flex;
@@ -28,6 +40,8 @@ navbar {
     z-index: 10;
 }
 
+
+
 navbar a img {
     height: 8vw;
     margin-top: 1vw;
@@ -37,6 +51,7 @@ navbar a img {
 navbar a img:hover{
     transform: scale(1.15);
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
 
 .page1 {
@@ -45,8 +60,21 @@ navbar a img:hover{
     align-items: center;
     justify-content: center;
 }
+/* Style for logo in navbar */
+.logo-large {
+    height: 8vw;
+    transition: height 0.5s ease-in-out;
+}
 
-video {
+.logo-small {
+    height: 4vw; 
+    transition: height 0.5s ease-in-out;
+    border: 3px solid #03671c;
+    border-radius: 5px;
+}
+
+
+.page1 video {
     height: 100vh;
     width: 100%;
     object-fit: cover;
@@ -56,6 +84,10 @@ video {
 .heading {
     font-family: Euro;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     top: 38%;
     left: 13%;
     width: fit-content;
@@ -75,129 +107,131 @@ video {
     text-transform: uppercase;
 }
 
-@media (max-width: 780px) {
-    body {
-        overflow-x: hidden;
-    }
 
-    navbar a img {
-        height: 12vw;
-        margin-top: 2vw;
-    }
-
-    .page1 {
-        align-items: flex-start;
-        /* padding-top: 80px; */
-        /* To provide space for the navbar */
-    }
-
-    video {
-        height: 100vh;
-        object-fit: cover;
-    }
-
-    .heading {
-        top: 35%;
-        left: 8%;
-        width: 90%;
-        text-align: center;
-    }
-
-    .head1,
-    .head2 {
-        margin: 0;
-    }
-
-    .heading h1 {
-        font-size: 8vw;
-        letter-spacing: 0.5vw;
-    }
-}
-
-@media (max-width: 430px) {
-    body {
-        overflow-x: hidden;
-    }
-
-    navbar a img {
-        height: 16vw;
-        margin-top: 3vw;
-    }
-
-    .page1 {
-        align-items: flex-start;
-        /* padding-top: 60px; */
-        /* To provide space for the navbar */
-    }
-
-    video {
-        height: 100vh;
-        object-fit: cover;
-    }
-
-    .heading {
-        top: 38%;
-        left: 5%;
-        width: 90%;
-        text-align: center;
-    }
-
-    .head1,.head2 {
-        margin: 0;
-    }
-
-    .heading h1 {
-        font-size: 10vw;
-        letter-spacing: 0.3vw;
-    }
-}
-
-@media (max-width: 380px) {
-    body {
-        overflow-x: hidden;
-    }
-
-    navbar a img {
-        height: 18vw;
-        margin-top: 4vw;
-    }
-
-    .page1 {
-        align-items: flex-start;
-        /* padding-top: 60px; */
-        /* To provide space for the navbar */
-    }
-
-    video {
-        height: 100vh;
-        object-fit: cover;
-    }
-
-    .heading {
-        top: 38%;
-        left: 5%;
-        width: 90%;
-        text-align: center;
-    }
-
-    .heading h1 {
-        font-size: 12vw;
-        letter-spacing: 0.2vw;
-        line-height: 1.2;
-    }
-}
 
 .heading button {
     position: relative;
-    left: 40%;
-    margin-top: 2.5vw;
-    background: #1e7109;
+    
+    background: linear-gradient(120deg, #1c8303, #028011);
     color: #fff;
     font-size: 1.8vw;
     border: none;
-    font-family: Euro;
-    padding: .8vw 1vw;
-    border-radius: 5px;
+    font-family: EuroDemi;
+    padding: .8vw 1.7vw;
+    border-radius: 1.5rem;
     cursor: pointer;
-    transition: background 0.2s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    /* Changed 'size' to 'transform' */
+}
+
+.heading button:hover {
+    background: linear-gradient(135deg, #67df04, #2fdb04c3);
+    /* Corrected rad to deg */
+    
+}
+
+.main-nav{
+    position: absolute;
+    top: 10vw;
+    left: -35vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 45vw;
+    z-index: 2;
+    display: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: .6vw;
+    font-size: 3.6vw;
+    font-weight: bolder;
+    /* margin-bottom: 2vw; */
+    font-family: EuroDemi;
+    transition: color 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+    color: #6af249;
+    font-size: 3.8vw;
+    cursor: pointer;
+}
+
+.page1 {
+    /* Other styles */
+    transition: filter 0.2s ease-in-out;
+    /* Adds a smooth transition for the blur effect */
+}
+
+
+
+
+
+.main-nav {
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Animation for opacity and transform */
+}
+
+.page2 {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+/* /* .main-heading {
+    position: relative;
+    top: 6vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-heading h1{
+    margin: 0;
+    padding-left: 2vw;
+    font-family: EuroDemi;
+    font-size: 6vw;
+    text-transform: uppercase;
+    color: #1c8303;
+    /* color: #d2d1d1; */
+/* }
+
+.main-content-part {
+    position: relative;
+    padding: 0 2vw;
+    top: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-content-part p {
+    font-size: 2vw;
+    line-height: 1.5;
+    font-family: Euro;
+    color: #4a4a4a;
+    text-align: left;
+}  */ */
+
+.page2 video {
+    width: 100%;
+    min-height: 90vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.main-content {
+    position: relative;
+    top: 2vw;
+
 }
