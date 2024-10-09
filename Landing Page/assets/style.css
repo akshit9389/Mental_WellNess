@@ -28,6 +28,8 @@ navbar {
     z-index: 10;
 }
 
+
+
 navbar a img {
     height: 8vw;
     margin-top: 1vw;
@@ -56,7 +58,6 @@ navbar a img:hover{
     transition: height 0.5s ease-in-out;
     border: 3px solid #1c8303;
     border-radius: 5px;
-    transform: translateX(500%);
 }
 
 
