@@ -30,10 +30,10 @@ icon.addEventListener("click", () => {
   if (navb.style.display === "none" || navb.style.display === "") {
     navb.style.display = "flex";
     setTimeout(() => {
-      navb.style.opacity = "1";
+      navb.style.opacity = "2";
       navb.style.transform = "translateY(0)";
-      page1.style.filter = "blur(8px)";
-    }, 10); // Slight delay to allow display to take effect before animating
+      page1.style.filter = "blur(12px)";
+    }, 100); // Slight delay to allow display to take effect before animating
   } else {
     navb.style.opacity = "0";
     navb.style.transform = "translateY(-20px)";
