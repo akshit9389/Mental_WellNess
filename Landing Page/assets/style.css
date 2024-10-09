@@ -54,7 +54,7 @@ navbar a img:hover{
     transition: transform 0.2s ease-in-out;
 }
 
-.page1 {
+.page1,.page2 {
     position: relative;
     display: flex;
     align-items: center;
@@ -180,58 +180,70 @@ navbar a img:hover{
 }
 
 .page2 {
-    min-height: 100vh;
     width: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-}
-
-/* /* .main-heading {
-    position: relative;
-    top: 6vw;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.main-heading h1{
-    margin: 0;
-    padding-left: 2vw;
-    font-family: EuroDemi;
-    font-size: 6vw;
-    text-transform: uppercase;
-    color: #1c8303;
-    /* color: #d2d1d1; */
-/* }
-
-.main-content-part {
-    position: relative;
-    padding: 0 2vw;
-    top: 10vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
-}
+    overflow: hidden;
+    position: absolute;
+} 
 
-.main-content-part p {
-    font-size: 2vw;
-    line-height: 1.5;
-    font-family: Euro;
-    color: #4a4a4a;
-    text-align: left;
-}  */ */
-
-.page2 video {
+#page2v {
+    z-index: -2;
+    height: 100vh;
     width: 100%;
-    min-height: 90vh;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
+    margin: 0;
+    object-fit: cover;
 }
-.main-content {
-    position: relative;
-    top: 2vw;
 
+.page2head{
+    display: flex;
+    justify-content: left;
+    
+    top: 7vw;
+    left: 4vw;
 }
+
+.main-head{
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    gap: 1.5vw;
+    margin: 0;
+}
+
+.main-head h1 {
+    margin: 0;
+}
+
+.main-para {
+
+    background-color: rgba(21, 17, 17, 0.8);
+    opacity: 0.8;
+    width: 60vw;
+    align-self: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1vw;
+    margin-top: 1.5vw;
+    padding: 0 2vw;
+    border-radius: 2vw;
+}
+
+.main-para p {
+    font-family: Euro;
+    font-size: 1.5vw;
+    color: #fff;
+    letter-spacing:.5vw;
+    line-height: 1.5;
+    z-index: 3;
+    padding: 0 2vw;
+    text-align: justify;
+}
+
+
+
+
+
+
