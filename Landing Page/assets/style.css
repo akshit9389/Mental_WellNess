@@ -17,6 +17,18 @@ body {
     margin: 0;
 }
 
+body::-webkit-scrollbar {
+    width: 0;
+    /* Hide scrollbar in WebKit browsers */
+    background: transparent;
+    /* Optional: to make it invisible */
+}
+
+body,
+html {
+    overflow-x: hidden;
+}
+
 navbar {
     background: transparent;
     display: flex;
@@ -39,6 +51,7 @@ navbar a img {
 navbar a img:hover{
     transform: scale(1.15);
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
 
 .page1 {
@@ -56,12 +69,12 @@ navbar a img:hover{
 .logo-small {
     height: 4vw; 
     transition: height 0.5s ease-in-out;
-    border: 3px solid #1c8303;
+    border: 3px solid #03671c;
     border-radius: 5px;
 }
 
 
-video {
+.page1 video {
     height: 100vh;
     width: 100%;
     object-fit: cover;
@@ -169,9 +182,56 @@ video {
 .page2 {
     min-height: 100vh;
     width: 100%;
-    background: linear-gradient(135deg, #d0f7b1, #9df187c3);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+/* /* .main-heading {
+    position: relative;
+    top: 6vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 .main-heading h1{
     margin: 0;
+    padding-left: 2vw;
+    font-family: EuroDemi;
+    font-size: 6vw;
+    text-transform: uppercase;
+    color: #1c8303;
+    /* color: #d2d1d1; */
+/* }
+
+.main-content-part {
+    position: relative;
+    padding: 0 2vw;
+    top: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-content-part p {
+    font-size: 2vw;
+    line-height: 1.5;
+    font-family: Euro;
+    color: #4a4a4a;
+    text-align: left;
+}  */ */
+
+.page2 video {
+    width: 100%;
+    min-height: 90vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.main-content {
+    position: relative;
+    top: 2vw;
+
 }

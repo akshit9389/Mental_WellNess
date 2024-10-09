@@ -76,3 +76,39 @@ window.addEventListener("scroll", adjustLogoSize);
 // Call the function on page load to set the correct logo size
 adjustLogoSize();
 
+
+function zigAnimation() {
+  gsap.from("#what", {
+    y: -100,
+    opacity: 0,
+    delay: .21,
+    duration: 1,
+    stagger: 0.5,
+  });
+  gsap.from("#is", {
+    y: 100,
+    opacity: 0,
+    delay: .2,
+    duration: 1,
+    stagger: 0.5,
+  });
+  gsap.from("#mood", {
+    y: -100,
+    opacity: 0,
+    delay: .21,
+    duration: 1,
+    stagger: 0.5,
+  });
+  gsap.from("#map", {
+    y: 100,
+    opacity: 0,
+    delay: .21,
+    duration: 1,
+    stagger: 0.5
+  });
+}
+
+zigAnimation();
+
+
+
