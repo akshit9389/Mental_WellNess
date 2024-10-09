@@ -76,36 +76,44 @@ window.addEventListener("scroll", adjustLogoSize);
 // Call the function on page load to set the correct logo size
 adjustLogoSize();
 
+gsap.registerPlugin(ScrollTrigger);
 
 function zigAnimation() {
   gsap.from("#what", {
     y: -100,
     opacity: 0,
-    delay: .21,
     duration: 1,
     stagger: 0.5,
+    scrollTrigger: {
+      trigger: "#what",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
   });
+
   gsap.from("#is", {
     y: 100,
     opacity: 0,
-    delay: .2,
     duration: 1,
     stagger: 0.5,
-  });
-  gsap.from("#mood", {
-    y: -100,
-    opacity: 0,
-    delay: .21,
-    duration: 1,
-    stagger: 0.5,
-  });
-  gsap.from("#map", {
-    y: 100,
-    opacity: 0,
-    delay: .21,
-    duration: 1,
-    stagger: 0.5
+    scrollTrigger: {
+      trigger: "#is",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
   });
 }
 
-zigAnimation();
+function initPageAnimations() {
+  zigAnimation();
+  ScrollTrigger.refresh();
+}
+
+window.addEventListener('load', () => {
+  initPageAnimations();
+});
+
+window.addEventListener('popstate', () => {
+  initPageAnimations();
+});
+
