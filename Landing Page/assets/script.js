@@ -36,6 +36,7 @@ function adjustNavbSize() {
 adjustNavbSize();
 
 icon.addEventListener("click", () => {
+  event.preventDefault();
   if (navb.style.display === "none" || navb.style.display === "") {
     navb.style.display = "flex";
     setTimeout(() => {
