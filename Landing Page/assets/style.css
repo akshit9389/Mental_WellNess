@@ -45,6 +45,18 @@ navbar a img:hover{
     align-items: center;
     justify-content: center;
 }
+/* Style for logo in navbar */
+.logo-large {
+    height: 8vw;
+    transition: height 0.5s ease-in-out;
+}
+
+.logo-small {
+    height: 4vw;
+    margin-left: auto; 
+    transition: height 0.5s ease-in-out;
+}
+
 
 video {
     height: 100vh;
