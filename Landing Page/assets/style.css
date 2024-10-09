@@ -124,7 +124,6 @@ video {
     font-family: EuroDemi;
     transition: color 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
-    padding: 2px;
 }
 
 .main-nav a:hover {
