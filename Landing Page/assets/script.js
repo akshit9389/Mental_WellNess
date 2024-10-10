@@ -51,7 +51,7 @@ function adjustNavbSize() {
 // Call this function on page load to set the correct size
 adjustNavbSize();
 
-icon.addEventListener("click", () => {
+icon.addEventListener("click", (event) => {
   event.preventDefault();
   if (navb.style.display === "none" || navb.style.display === "") {
     navb.style.display = "flex";
@@ -70,27 +70,51 @@ icon.addEventListener("click", () => {
   }
 });
 
-let logo = document.querySelector("#ic img"); // Select the logo image
-let page2 = document.querySelector(".page2"); // Select the second page element
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.querySelector("#ic img");
+  const homeSection = document.querySelector(".page1"); // Observing Page 1 (Home)
 
-// Function to adjust logo size based on which page is visible
-function adjustLogoSize() {
-    // If page2 is visible, make the logo smaller
-    if (page2.offsetTop < window.scrollY + window.innerHeight) {
-        logo.classList.remove("logo-large");
-        logo.classList.add("logo-small");
-    } else {
-        // If not on the second page, keep the logo large
-        logo.classList.remove("logo-small");
-        logo.classList.add("logo-large");
-    }
-}
+  // Ensure the logo and home section elements exist
+  if (!logo) {
+      console.error("Logo element not found!");
+      return;
+  }
 
-// Listen for scroll events to trigger logo resizing
-window.addEventListener("scroll", adjustLogoSize);
+  if (!homeSection) {
+      console.error("Home section (.page1) element not found!");
+      return;
+  }
 
-// Call the function on page load to set the correct logo size
-adjustLogoSize();
+  // Define observer options
+  const observerOptions = {
+      root: null, // Observes relative to the viewport
+      threshold: 0.1 // 10% of the home section is visible
+  };
+
+  // Callback function to execute when intersection changes
+  const observerCallback = (entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              console.log("Home section is in view. Switching to logo-large.");
+              logo.classList.remove("logo-small");
+              logo.classList.add("logo-large");
+          } else {
+              console.log("Home section is out of view. Switching to logo-small.");
+              logo.classList.remove("logo-large");
+              logo.classList.add("logo-small");
+          }
+      });
+  };
+
+  // Create the IntersectionObserver instance
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Start observing the home section
+  observer.observe(homeSection);
+});
+
+
+
 
 gsap.registerPlugin(ScrollTrigger);
 
