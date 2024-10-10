@@ -15,9 +15,6 @@
 
 body {
     margin: 0;
-}
-
-body {
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -27,14 +24,14 @@ body.fade-out {
 
 body::-webkit-scrollbar {
     width: 0;
-    /* Hide scrollbar in WebKit browsers */
     background: transparent;
-    /* Optional: to make it invisible */
 }
 
 body,
 html {
     overflow-x: hidden;
+    height: 100%;
+    /* Ensures body takes full height */
 }
 
 navbar {
@@ -48,44 +45,63 @@ navbar {
     z-index: 10;
 }
 
-
-
 navbar a img {
     height: 8vw;
     margin-top: 1vw;
     transition: transform 0.2s ease-in-out;
 }
 
-navbar a img:hover{
+navbar a img:hover {
     transform: scale(1.15);
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
 
-.page1,.page2,.page3 {
+.page1,
+.page2,
+.page3 {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    /* Make each section take the full viewport height */
+    width: 100%;
 }
-/* Style for logo in navbar */
+
+.head1 {
+    display: flex;
+    align-items: center;
+    /* Center items vertically */
+    justify-content: center;
+    /* Start with items centered */
+    width: 100%;
+    /* Full width to allow proper positioning */
+    position: relative;
+    /* Ensure positioning context for children */
+}
+
 .logo-large {
     height: 8vw;
     transition: height 0.5s ease-in-out;
 }
 
 .logo-small {
-    height: 4vw; 
+    height: 4vw;
     transition: height 0.5s ease-in-out;
     border: 3px solid #03671c;
     border-radius: 5px;
 }
 
-
-.page1 video {
+.page1 video,
+.page2 video,
+.page3 video {
     height: 100vh;
-    width: 100%;
+    /* Set height to 100vh (viewport height) */
+    width: 100vw;
+    /* Set width to 100vw (viewport width) */
     object-fit: cover;
+    /* Ensure the video covers the entire area */
     z-index: -1;
 }
 
@@ -99,20 +115,17 @@ navbar a img:hover{
     top: 38%;
     left: 13%;
     width: fit-content;
+    margin-bottom: 2vw;
 }
 
 .head11,
 .head22 {
-   overflow: hidden;
-}
-
-.head1,
-.head2 {
-    margin: 0vw 0;
+    overflow: hidden;
 }
 
 .heading h1 {
     font-size: 6vw;
+    margin: .5vw;
     color: #f0f0f0;
     text-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
     text-align: center;
@@ -120,40 +133,29 @@ navbar a img:hover{
     text-transform: uppercase;
 }
 
-
-
 .btn12 {
-    position: relative;
-    
     background: linear-gradient(120deg, #1c8303, #028011);
     color: #fff;
     font-size: 1.8vw;
     border: none;
-    font-family: EuroDemi;
     padding: .8vw 1.7vw;
     border-radius: 1.5rem;
     cursor: pointer;
-    transition: transform 0.5s ease-in-out;
     text-decoration: none;
-    /* Changed 'size' to 'transform' */
+    transition: transform 0.5s ease-in-out;
 }
 
 .btn12:hover {
     background: linear-gradient(135deg, #67df04, #2fdb04c3);
-    /* Corrected rad to deg */
-    
 }
 
-.main-nav{
-    position: absolute;
-    top: 10vw;
-    left: -35vw;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 45vw;
-    z-index: 2;
+.main-nav {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .main-nav a {
@@ -174,15 +176,17 @@ navbar a img:hover{
     cursor: pointer;
 }
 
-.page1 {
-    /* Other styles */
-    transition: filter 0.2s ease-in-out;
-    /* Adds a smooth transition for the blur effect */
+.main-nav {
+    position: absolute;
+    top: 10vw;
+    left: -35vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 45vw;
+    z-index: 2;
+    display: none;
 }
-
-
-
-
 
 .main-nav {
     display: none;
@@ -193,40 +197,16 @@ navbar a img:hover{
     /* Animation for opacity and transform */
 }
 
-.page2 {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: absolute;
-} 
-
-#page2v {
-    z-index: -2;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    object-fit: cover;
-}
-
-.page2head{
+.page2head {
     display: flex;
     justify-content: left;
-    
     top: 7vw;
     left: 4vw;
 }
 
-.main-head{
+.main-head {
     display: flex;
-    justify-content: flex-start;
-    align-items: left;
     gap: 1.5vw;
-    margin: 0;
-}
-
-.main-head h1 {
     margin: 0;
 }
 
@@ -240,7 +220,7 @@ navbar a img:hover{
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1vw;
-    margin-top: 4vw;
+    margin-top: 1.5vw;
     padding: 0 2vw;
     border-radius: 2vw;
 }
@@ -249,21 +229,9 @@ navbar a img:hover{
     font-family: Euro;
     font-size: 1.5vw;
     color: #fff;
-    letter-spacing:.5vw;
+    letter-spacing: .5vw;
     line-height: 1.5;
     z-index: 3;
     padding: 0 2vw;
     text-align: justify;
 }
-
-#page3v {
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-
-
-
-
