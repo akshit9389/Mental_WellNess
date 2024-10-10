@@ -59,7 +59,8 @@ navbar a img:hover {
 
 .page1,
 .page2,
-.page3 {
+.page3,
+.page4 {
     position: relative;
     display: flex;
     align-items: center;
@@ -95,7 +96,8 @@ navbar a img:hover {
 
 .page1 video,
 .page2 video,
-.page3 video {
+.page3 video,
+ .page4 video {
     height: 100vh;
     /* Set height to 100vh (viewport height) */
     width: 100vw;
