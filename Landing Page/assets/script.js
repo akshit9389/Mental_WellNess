@@ -133,3 +133,11 @@ window.addEventListener('popstate', () => {
   initPageAnimations();
 });
 
+document.querySelector('#transition-link').addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent immediate navigation
+        document.body.classList.add('fade-out');  // Add fade-out class
+        setTimeout(() => {
+            window.location.href = event.target.href;  // Navigate to new page after fade-out
+        }, 300);  // Delay navigation by 500ms (same as the transition duration)
+    });
+
