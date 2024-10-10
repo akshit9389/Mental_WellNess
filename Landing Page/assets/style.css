@@ -54,7 +54,7 @@ navbar a img:hover{
     transition: transform 0.2s ease-in-out;
 }
 
-.page1,.page2 {
+.page1,.page2,.page3 {
     position: relative;
     display: flex;
     align-items: center;
@@ -91,6 +91,11 @@ navbar a img:hover{
     top: 38%;
     left: 13%;
     width: fit-content;
+}
+
+.head11,
+.head22 {
+   overflow: hidden;
 }
 
 .head1,
@@ -226,7 +231,7 @@ navbar a img:hover{
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1vw;
-    margin-top: 1.5vw;
+    margin-top: 4vw;
     padding: 0 2vw;
     border-radius: 2vw;
 }
@@ -242,6 +247,12 @@ navbar a img:hover{
     text-align: justify;
 }
 
+#page3v {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 
 
 
