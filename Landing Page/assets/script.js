@@ -160,56 +160,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
   // Attach the scroll event listener
-  window.addEventListener("scroll", handleLogoResize);
+  // window.addEventListener("scroll", handleLogoResize);
 
-  // Call the function on page load to set the correct logo size
-  handleLogoResize();
-
-
+  // // Call the function on page load to set the correct logo size
+  // handleLogoResize();
 
 
 
 
-gsap.registerPlugin(ScrollTrigger);
 
-function zigAnimation() {
-  gsap.from("#what", {
-    y: -100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.5,
-    scrollTrigger: {
-      trigger: "#what",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function zigZagAnimation() {
+    gsap.from("#zig-element", {
+      y: (i) => (i % 2 === 0 ? -100 : 100), // Zigzag based on index
+      opacity: 0,
+      duration: 1,
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: "#zig-element",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+  }
+  
+  function initPageAnimations() {
+    zigZagAnimation();
+    ScrollTrigger.refresh();
+  }
+  
+  window.addEventListener('load', () => {
+    initPageAnimations();
   });
-
-  gsap.from("#is", {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.5,
-    scrollTrigger: {
-      trigger: "#is",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    }
+  
+  window.addEventListener('popstate', () => {
+    initPageAnimations();
   });
-}
-
-function initPageAnimations() {
-  zigAnimation();
-  ScrollTrigger.refresh();
-}
-
-window.addEventListener('load', () => {
-  initPageAnimations();
-});
-
-window.addEventListener('popstate', () => {
-  initPageAnimations();
-});
 
 document.querySelector('#transition-link').addEventListener('click', function(event) {
         event.preventDefault();  // Prevent immediate navigation
