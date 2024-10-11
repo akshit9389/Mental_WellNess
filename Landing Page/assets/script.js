@@ -72,46 +72,44 @@ icon.addEventListener("click", (event) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const logo = document.querySelector("#ic img");
-  const homeSection = document.querySelector(".page1"); // Observing Page 1 (Home)
+  const homeSection = document.querySelector("navbar"); // Assuming .page1 is your first sticky page
 
-  // Ensure the logo and home section elements exist
-  if (!logo) {
-      console.error("Logo element not found!");
-      return;
+  if (!logo || !homeSection) {
+    console.error("Logo or home section not found!");
+    return;
   }
 
-  if (!homeSection) {
-      console.error("Home section (.page1) element not found!");
-      return;
-  }
+  // Function to handle logo resizing based on scroll
+  const handleLogoResize = () => {
+    // Get the height of the home section
+    const homeSectionHeight = homeSection.offsetHeight;
 
-  // Define observer options
-  const observerOptions = {
-      root: null, // Observes relative to the viewport
-      threshold: 0.1 // 10% of the home section is visible
+    // Check the scroll position: if it's greater than homeSectionHeight, shrink the logo
+    if (window.scrollY > homeSectionHeight) {
+      logo.classList.remove("logo-large");
+      logo.classList.add("logo-small");
+    } else {
+      // If user scrolls back up to the home section, keep the logo large
+      logo.classList.remove("logo-small");
+      logo.classList.add("logo-large");
+    }
   };
 
-  // Callback function to execute when intersection changes
-  const observerCallback = (entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              console.log("Home section is in view. Switching to logo-large.");
-              logo.classList.remove("logo-small");
-              logo.classList.add("logo-large");
-          } else {
-              console.log("Home section is out of view. Switching to logo-small.");
-              logo.classList.remove("logo-large");
-              logo.classList.add("logo-small");
-          }
-      });
-  };
+  // Attach the scroll event listener
+  window.addEventListener("scroll", handleLogoResize);
 
-  // Create the IntersectionObserver instance
-  const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-  // Start observing the home section
-  observer.observe(homeSection);
+  // Call the function on page load to set the correct logo size
+  handleLogoResize();
 });
+
+
+  // Attach the scroll event listener
+  window.addEventListener("scroll", handleLogoResize);
+
+  // Call the function on page load to set the correct logo size
+  handleLogoResize();
+
+
 
 
 
