@@ -1,3 +1,28 @@
+const races = document.querySelector(".races");
+console.log(races.offsetWidth)
+
+function getScrollAmount() {
+  let racesWidth = races.scrollWidth;
+  return -(racesWidth + racesWidth*.25 - window.innerWidth);
+}
+
+const tween = gsap.to(races, {
+  x: getScrollAmount,
+  duration: 1,
+  ease: "none",
+});
+
+
+ScrollTrigger.create({
+  trigger:".racesWrapper",
+  start:"top 35%",
+  end: () => `+=${getScrollAmount()} * -2`,
+  pin:true,
+  animation:tween,
+  scrub:5,
+  invalidateOnRefresh:true,
+  markers:false
+})
 // function locomotiveAnimation() {
 //   gsap.registerPlugin(ScrollTrigger);
 
@@ -219,21 +244,8 @@ document.querySelector('#transition-link').addEventListener('click', function(ev
         }, 300);  // Delay navigation by 500ms (same as the transition duration)
 });
     
-document.addEventListener('DOMContentLoaded', function() {
-    let btn123 = document.querySelector(".btn123");
-    let card = document.querySelector(".card");
 
-    // Check if the card and button are correctly selected
-    console.log(btn123, card);
 
-    // Attach click event listener to the card
-    card.addEventListener('click', function() {
-        console.log('Card clicked!');  // Check if this log appears when clicking the card
-
-        // Display the button when the card is clicked
-        btn123.style.display = 'block';
-    });
-});
 
 
 
