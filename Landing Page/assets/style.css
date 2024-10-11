@@ -181,7 +181,7 @@ navbar a img:hover {
 
 .main-nav {
     position: absolute;
-    top: 10vw;
+    top: 5vw;
     left: -35vw;
     display: flex;
     flex-direction: column;
@@ -203,7 +203,7 @@ navbar a img:hover {
 .page2head {
     display: flex;
     justify-content: left;
-    top: 8vw;
+    top: 4vw;
     left: 4vw;
 }
 
