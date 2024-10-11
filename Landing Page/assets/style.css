@@ -46,8 +46,8 @@ navbar {
 }
 
 navbar a img {
-    height: 8vw;
-    margin-top: 1vw;
+    height: 5vw;
+    margin-top: 0.2vw;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -92,6 +92,7 @@ navbar a img:hover {
     transition: height 0.5s ease-in-out;
     border: 3px solid #03671c;
     border-radius: 5px;
+    background-color: rgba(207, 209, 207, 0.369);
 }
 
 .page1 video,
@@ -202,7 +203,7 @@ navbar a img:hover {
 .page2head {
     display: flex;
     justify-content: left;
-    top: 7vw;
+    top: 8vw;
     left: 4vw;
 }
 
@@ -222,7 +223,7 @@ navbar a img:hover {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1vw;
-    margin-top: 1.5vw;
+    margin-top: 2vw;
     padding: 0 2vw;
     border-radius: 2vw;
 }
@@ -236,4 +237,9 @@ navbar a img:hover {
     z-index: 3;
     padding: 0 2vw;
     text-align: justify;
+}
+
+.page {
+    position:sticky;
+    top: 0;
 }
