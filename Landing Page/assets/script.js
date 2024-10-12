@@ -15,11 +15,11 @@ const tween = gsap.to(races, {
 
 ScrollTrigger.create({
   trigger:".racesWrapper",
-  start:"top 45%",
+  start:"top 20%",
   end: () => `+=${getScrollAmount()} * -1`,
   pin:true,
   animation:tween,
-  scrub:1,
+  scrub:2,
   invalidateOnRefresh:true,
   markers:false
 })
@@ -40,11 +40,11 @@ const tween1 = gsap.to(races1, {
 
 ScrollTrigger.create({
   trigger:".racesWrapper1",
-  start:"top 40%",
+  start:"top 20%",
   end: () => `+=${getScrollAmount1()} * -1`,
   pin:true,
   animation:tween1,
-  scrub:1,
+  scrub:2,
   invalidateOnRefresh:true,
   markers:false
 })
