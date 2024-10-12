@@ -1,25 +1,50 @@
 const races = document.querySelector(".races");
-console.log(races.offsetWidth)
+
 
 function getScrollAmount() {
   let racesWidth = races.scrollWidth;
-  return -(racesWidth + racesWidth*.25 - window.innerWidth);
+  return -(racesWidth  - window.innerWidth);
 }
 
 const tween = gsap.to(races, {
   x: getScrollAmount,
-  duration: 1,
+  duration: 10,
   ease: "none",
 });
 
 
 ScrollTrigger.create({
   trigger:".racesWrapper",
-  start:"top 35%",
-  end: () => `+=${getScrollAmount()} * -2`,
+  start:"top 45%",
+  end: () => `+=${getScrollAmount()} * -1`,
   pin:true,
   animation:tween,
-  scrub:5,
+  scrub:1,
+  invalidateOnRefresh:true,
+  markers:false
+})
+const races1 = document.querySelector(".races1");
+
+
+function getScrollAmount1() {
+  let racesWidth1 = races1.scrollWidth;
+  return -(racesWidth1  - window.innerWidth);
+}
+
+const tween1 = gsap.to(races1, {
+  x: getScrollAmount1(),
+  duration: 10,
+  ease: "none",
+});
+
+
+ScrollTrigger.create({
+  trigger:".racesWrapper1",
+  start:"top 40%",
+  end: () => `+=${getScrollAmount1()} * -1`,
+  pin:true,
+  animation:tween1,
+  scrub:1,
   invalidateOnRefresh:true,
   markers:false
 })
