@@ -63,7 +63,7 @@ navbar a img:hover {
 .page2,
 .page3,
 .page4 {
-    /* position: relative; */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,15 +99,26 @@ navbar a img:hover {
 
 .page1 video,
 .page2 video,
-.page3 video,
- .page4 video {
+.page3 video
+ {
     height: 100vh;
     /* Set height to 100vh (viewport height) */
     width: 100vw;
     /* Set width to 100vw (viewport width) */
     object-fit: cover;
     /* Ensure the video covers the entire area */
-    z-index: -1;
+    z-index: -2;
+}
+
+.page4 video
+{
+height: 100vh;
+/* Set height to 100vh (viewport height) */
+width: 100vw;
+/* Set width to 100vw (viewport width) */
+object-fit: cover;
+/* Ensure the video covers the entire area */
+z-index: -1;
 }
 
 .heading {
@@ -246,7 +257,7 @@ navbar a img:hover {
     top: 0;
 }
 
-.page3 {
+.page3,.page4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -255,14 +266,38 @@ navbar a img:hover {
     width: 100%;
 }
 
-.card {
+.racesWrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-10%, -45%);
     transform-origin: center center;
-    width: 40vw;
-    height: 65vh;
+}
+
+
+
+.races {
+    width: fit-content;
+    display: flex;
+    /* gap: 20vw; */
+    flex-wrap: nowrap;
+}
+
+.pg4con {
+    flex-shrink: 0;
+    /* Prevents flex items from shrinking */
+    margin-right: 10vw;
+    /* Adds space between cards */
+}
+
+.card {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transform-origin: center center; */
+    width: 25vw;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -319,3 +354,17 @@ navbar a img:hover {
 .btn123:hover {
     background: linear-gradient(135deg, #67df04, #2fdb04c3);
 }
+
+.page3 video {
+    height: 150vh;
+        /* Set height to 100vh (viewport height) */
+        width: 100vw;
+        /* Set width to 100vw (viewport width) */
+        object-fit: cover;
+        /* Ensure the video covers the entire area */
+        z-index: -1;
+}
+
+/* .page3 {
+    height: 500vh;
+} */
