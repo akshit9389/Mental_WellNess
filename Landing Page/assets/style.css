@@ -141,7 +141,7 @@ z-index: -1;
 
 .heading h1 {
     font-size: 6vw;
-    margin: .5vw;
+    margin: 0 .5vw;
     color: #f0f0f0;
     text-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
     text-align: center;
@@ -154,6 +154,7 @@ z-index: -1;
     color: #fff;
     font-size: 1.8vw;
     border: none;
+    margin-top: 4vw;
     padding: .8vw 1.7vw;
     border-radius: 1.5rem;
     cursor: pointer;
@@ -304,8 +305,14 @@ z-index: -1;
     align-items: center;
     background-color: rgba(21, 17, 17, 0.8);
     border-radius: 10px;
-    transition: background-color 0.5s ease;
+    transition: size 0.5s ease-in-out;
     overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.12);
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
 }
 
 .img-cont {
@@ -342,7 +349,7 @@ z-index: -1;
 
 .page3 video,
 .page4 video {
-    height: 120vh;
+    height: 130vh;
         /* Set height to 100vh (viewport height) */
         width: 100vw;
         /* Set width to 100vw (viewport width) */
@@ -352,5 +359,137 @@ z-index: -1;
 }
 
 .page3,.page4 {
-    height: 120vh;
+    height: 130vh;
+}
+
+.foot {
+    font-family: EuroDemi;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 100vh;
+    background: linear-gradient(135rad, #c7ffb9, #839e7c);
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    background: #1a8a01;
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social_icon,
+footer .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+
+}
+
+footer .social_icon li,
+footer .menu li {
+    list-style: none;
+}
+
+footer .social_icon li a {
+    font-size: 2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+footer .social_icon li a:hover {
+    transform: translateY(-10px);
+}
+
+footer .menu li a {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+footer .menu li a:hover {
+    opacity: 1;
+
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+
+}
+
+footer .wave {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(realwave.png);
+    background-size: 1000px 100px;
+}
+
+footer .wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+
+}
+
+footer .wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave_02 4s linear infinite;
+}
+
+footer .wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 0;
+    animation: animateWave 3s linear infinite;
+
+}
+
+footer .wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 1 0px;
+    animation: animateWave_02 3s linear infinite;
+}
+
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave_02 {
+    0% {
+        background-position-x: 0px;
+    }
+
+    100% {
+        background-position-x: 1000px;
+    }
 }
