@@ -320,7 +320,7 @@ z-index: -1;
 .img-cont img {
     width: 40vw;
     height: 45vh;
-    object-fit: cover;
+    object-fit: contain;
     
 }
 
