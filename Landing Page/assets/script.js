@@ -96,7 +96,7 @@ ScrollTrigger.create({
 
 function loadingAnimation2() {
     gsap.from(".head2", {
-        y: 100,
+        y: 800,
         delay: 0.35,
         duration: 0.7,
     });
