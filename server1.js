@@ -17,6 +17,8 @@ const ExpressError = require("./utils/ExpressError.js");
 
 const userRouter = require('./routes/userRoute.js');
 const healingRouter = require('./routes/healing.js');
+const feedbackRouter = require('./routes/feedback.js');
+
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/Moodmap";
 
@@ -66,11 +68,18 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use("/", userRouter);
 app.use("/", healingRouter);
+app.use("/", feedbackRouter);
 
-app.get("/listings",wrapAsync( async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render("users/doc.ejs", { allListings });
-}));
+app.get("/listings", async (req, res) => {
+  try {
+    const allListings = await Listing.find({});
+    const users = await User.find({});
+    res.render("users/doc.ejs", { allListings, users });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
 //New Route
 app.get("/listings/new", async (req, res) => {
   console.log(req.user);

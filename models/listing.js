@@ -39,6 +39,11 @@ const listingSchema = new Schema({
         type: String,
         required: true,
     },
+    userId: {
+        type: Schema.Types.ObjectId, // Reference to the User model
+        ref: 'User',                 // This points to the 'User' collection
+        required: true               // Ensure every listing has a user associated
+      },
 });
 
 // Ensure Mongoose correctly sets defaults
