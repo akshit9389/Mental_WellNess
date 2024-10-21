@@ -16,6 +16,7 @@ const wrapAsync = require("./utils/wrapAsync.js")
 const ExpressError = require("./utils/ExpressError.js");
 
 const userRouter = require('./routes/userRoute.js');
+const healingRouter = require('./routes/healing.js');
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/Moodmap";
 
@@ -64,6 +65,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use("/", userRouter);
+app.use("/", healingRouter);
 
 app.get("/listings",wrapAsync( async (req, res) => {
   const allListings = await Listing.find({});
@@ -136,9 +138,7 @@ app.get("/home", (req, res) => {
 app.get("/feedback", (req, res) => {
   res.render('users/feedback.ejs');
 });
-app.get("/healinghuddles", (req, res) => {
-  res.render('users/hh.ejs');
-});
+
   
 app.listen(8080, () => {
     console.log("server is listening to port 8080");

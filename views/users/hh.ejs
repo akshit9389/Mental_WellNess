@@ -1,29 +1,29 @@
 <% layout('/layouts/bt') %>
   <body>
     
-    <h3>All Clubs</h3>
-    <!-- <form method="GET" action="/listings/new">
-      <button>Create New Listing</button>
+    <h3>All Healing Sessions</h3>
+    <!-- <form method="GET" action="/healings/new">
+      <button>Create New Healing Session</button>
     </form> -->
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-        <% for(let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
+        <% for(let healing of allHealings) { %>
+            <a href="/healings/<%= healing._id %>" class="listing-link">
             <div class="card" >
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
+                <img src="<%= healing.image.url %>" class="card-img-top" alt="healing_image" style="height:20rem">
                 <div class="card-img-overlay"></div>
                 <div class="card-body">
                   <div class="row">
-                  <p class="card-text col-md-8"><b><%= listing.title %></b> <br>
-                    &#8377;<%= listing.price.toLocaleString("en-IN") %>/consultation
+                  <p class="card-text col-md-8"><b><%= healing.title %></b> <br>
+                    <%= healing.price %>
                   </p>
-                  <form method="GET" action="http://localhost:3030/video" class="col-md-4 z-3 ">
+                  <form method="GET" action="http://localhost:3030/groupvideo" class="col-md-4 z-3">
                     <button class="btn btn-outline-danger mt-3 mb-5 add-btn pr-3 pl-3">Start Call</button>
                   </form>
                   </div>
                 </div>
             </div>
             </a>
-            <% } %>
+        <% } %>
     </div>
 
   </body>
