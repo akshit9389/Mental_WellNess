@@ -136,8 +136,12 @@ app.get("/home", (req, res) => {
 app.get("/feedback", (req, res) => {
   res.render('users/feedback.ejs');
 });
-app.get("/healinghuddles", (req, res) => {
-  res.render('users/hh.ejs');
+app.get("/quizzes", (req, res) => {
+  res.render('users/quizzes.ejs');
+});
+
+app.get("/stats", (req, res) => {
+  res.render('users/stats.ejs');
 });
   
 app.listen(8080, () => {
