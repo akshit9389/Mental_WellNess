@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Login & Sign up Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    body {
+        /* background-color: #4158D0;
+        background-image: linear-gradient(90deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+        background-size: 100% 100%;
+    }
+
+    .main {
+        background-color: rgba(255, 255, 255, 0.219);
+        backdrop-filter: blur(2px);
+        border-radius: 25px;
+    }
+
+    input {
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 4px solid dodgerblue;
+        width: 100%;
+        position: relative;
+        bottom: 0px;
+    }
+
+    .form-group {
+        height: 70px;
+    }
+
+    label {
+        position: relative;
+        font-size: 30px;
+        color: black;
+        font-weight: 400;
+        top: 32px;
+        left: 5px;
+        transition: .3s;
+        z-index: -1;
+        font-family: xyz;
+    }
+
+    .label-selected {
+        position: relative;
+        font-size: 13px;
+        color: black;
+        top: 5px;
+        left: 5px;
+        font-family: xyz;
+    }
+
+    button {
+        border: none;
+        background-color: rgb(3, 48, 197);
+        color: #fff;
+        font-weight: 500;
+        padding: 10px;
+        width: 100px;
+        border-radius: 30px;
+        margin-left: 75%;
+        transition: .5s;
+        transform: translate(0px, 0px);
+        font-family: xyz;
+    }
+
+    button:hover {
+        box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
+        transform: translate(0px, -3px);
+    }
+
+    .links {
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(3, 48, 197);
+    }
+
+    #overlay {
+        background-color: #fff;
+        height: 710px;
+        width: 600px;
+        position: absolute;
+        transform: translate(0px, -25px);
+        border-radius: 25px;
+        background: url(/newassets/bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: .5s;
+        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .5);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    video {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cont {
+        position: relative;
+        z-index: 1;
+    }
+
+    .display-4 {
+        color: black;
+        font-weight: 600;
+        font-family: xyz;
+    }
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 100px;
+        height: auto;
+        z-index: 10;
+        margin-top: 50px;
+        box-shadow: 4px 4px 5px rgba(1, 1, 1, 1);
+        border-radius: 1vw 1vw;
+    }
+
+    @font-face {
+        font-family: xyz;
+        src: url(/newassets/EurostileLTProUnicode-Demi.otf);
+    }
+
+    .welcome-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white; /* Change text color */
+        font-size: 6vw; /* Adjust font size */
+        font-weight: bold;
+        margin-top: 12vw; /* Space between logo and text */
+        z-index: 10; /* Ensure the text is on top of the image */
+        text-shadow: 5px 5px 5px rgba(1, 1, 1, 1); /* Add shadow for better readability */
+        font-family: xyz;
+    }
+
+    @media only screen and (max-width: 600px) {
+        body {
+            background-color: lightblue;
+        }
+
+        #overlay,
+        #signUp {
+            display: none;
+        }
+
+        button {
+            margin-left: 65%;
+        }
+    }
+    .flash-message {
+    display: flex;
+    position:absolute;
+    right: 0px;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between; /* Space between text and button */
+    align-items: center;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.close-btn {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: inherit;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+
+
+
+
+</style>
+
+<body>
+    <% if (messages.success) { %>
+        <div class="flash-message success">
+            <span><%= messages.success %></span>
+            <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+    <% } %>
+    
+    <% if (messages.error) { %>
+        <div class="flash-message error">
+            <span><%= messages.error %></span>
+            <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+    <% } %>
+    <video src="/newassets/login video.mp4" autoplay loop muted></video>
+    <div class="cont">
+        <div class="container p-4">
+            <div class="row main mt-5">
+                <!-- sign up form -->
+                <div class="col-md-6 p-5" id="signUp">
+                    <h3 class="display-4 text-center">Sign up</h3>
+                    <form class="needs-validation d-flex justify-content-center mt-4 " action="/signup" method="POST" novalidate>
+                        <div class="w-75">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" required>
+                                <div class="invalid-feedback">Please enter a correct username</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signupEmail">Email</label>
+                                <input type="email" id="signupEmail" name="email" required>
+                                <div class="invalid-feedback">Please enter a correct email</div>
+                            </div>
+                            <div class="form-group my-4">
+                                <label for="signupPassword">Password</label>
+                                <input type="password" id="signupPassword" name="password"required>
+                                <div class="invalid-feedback">Please enter a valid password</div>
+                            </div>
+                            <div class="form-group my-1 mb-5">
+                                <h2 class="mt-4 ml-2" style="color:#000"> Login as</h2>
+                                <select id="role" name="role" class="form-control mt-0" required>
+                                    <option value="" disabled selected>Select your role</option>
+                                    <option value="user">User</option>
+                                    <option value="doctor">Doctor</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a role</div>
+                            </div>
+                            <button type="submit">Register</button>
+                            <div class="d-flex justify-content-between mt-5">
+                                <a class="links" href="#" id="loginLink">Already have an Account?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Login Form -->
+                <div class="col-md-6 p-5" id="login">
+                    <h1 class="display-4 text-center">Login</h1>
+                    <form class="d-flex justify-content-center mt-4 needs-validation" action="/login" method="POST" novalidate>
+                        <div class="w-75">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" required>
+                                <div class="invalid-feedback">Please enter a correct username</div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="loginEmail">Email</label>
+                                <input type="email" id="loginEmail" name="email"required>
+                                <div class="invalid-feedback">Please enter your email</div>
+                            </div> -->
+                            <div class="form-group my-4">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" name="password" required>
+                                <div class="invalid-feedback">Please enter a valid password</div>
+                            </div>
+                            <button type="submit">Login</button>
+                            <div class="d-flex justify-content-between mt-5">
+                                <a class="links" href="#" id="registerLink">Create an Account?</a>
+                                <a class="links" href="#">Forget Password?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="overlay">
+                    <img src="/newassets/logo.png" alt="Logo" class="logo">
+                    <h1 class="welcome-text">Welcome...!</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        // Enable Bootstrap validation
+(function () {
+    'use strict';
+    var forms = document.querySelectorAll('.needs-validation');
+
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            // Check if the form is valid
+            if (!form.checkValidity()) {
+                event.preventDefault(); // Prevent submission
+                event.stopPropagation(); // Stop propagation
+            }
+            // Add was-validated class to trigger styles
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
+
+
+        document.querySelectorAll('input').forEach((item) => {
+            item.addEventListener("focus", function () {
+                item.previousElementSibling.className = 'label-selected';
+            })
+            item.addEventListener("blur", function () {
+                if (item.value === '') {
+                    item.previousElementSibling.className = '';
+                }
+            })
+        })
+
+        document.getElementById("registerLink").addEventListener("click", function () {
+            if (window.innerWidth < 600) {
+                document.getElementById("signUp").style.display = 'block';
+                document.getElementById("login").style.display = 'none';
+                document.getElementById("signUp").style.zIndex = '-10';
+            } else {
+                document.getElementById("overlay").style.transform = 'translate(550px , -25px)';
+            }
+        })
+
+        document.getElementById("loginLink").addEventListener("click", function () {
+            if (window.innerWidth < 600) {
+                document.getElementById("login").style.display = 'block';
+                document.getElementById("signUp").style.display = 'none';
+                document.getElementById("signUp").style.zIndex = '-10';
+            } else {
+                document.getElementById("overlay").style.transform = 'translate(0px , -25px)';
+            }
+        })
+    </script>
+
+</body>
+</html>
