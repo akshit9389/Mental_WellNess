@@ -45,14 +45,6 @@ app.get('/video', (req, res) => {
   }
 });
 
-const roomId = uuidv4(); // Generate a room ID once
-
-app.get('/groupvideo', (req, res) => {
-  // Redirect everyone to the same room
-  console.log(`User has joined room: ${roomId}`);
-  res.redirect(`/${roomId}`); // Redirect to the room
-});
-
 // Render the room page
 app.get('/:room', (req, res) => {
   res.render("room", { roomId: req.params.room });
@@ -86,6 +78,7 @@ io.on("connection", (socket) => {
       }
   });
 });
+
 
 // Start the server
 const PORT = process.env.PORT || 3030;
