@@ -1,3 +1,8 @@
+const loader = document.querySelector('.loader');
+setTimeout(function () {
+  loader.style.top = '-100%';
+},5000)
+
 const races = document.querySelector(".races");
 
 
@@ -97,7 +102,7 @@ ScrollTrigger.create({
 function loadingAnimation2() {
     gsap.from(".head2", {
         y: 800,
-        delay: 0.35,
+        delay: 6,
         duration: 0.7,
     });
 }
@@ -106,7 +111,7 @@ loadingAnimation2();
 function loadingAnimation1() {
     gsap.from(".head1", {
         y: 100,
-        delay: 0.4,
+        delay: 6,
         duration: 0.7,
     });
 }
@@ -115,7 +120,7 @@ loadingAnimation1();
 function loadingAnimation12() {
     gsap.from(".head12", {
         y: -100,
-      delay: 0.4,
+      delay: 6,
       opacity: 0,
       duration: 0.7,
         stagger: 0.2,
@@ -123,7 +128,7 @@ function loadingAnimation12() {
   
   gsap.from(".btn12", {
         y: 100,
-      delay: 0.3,
+      delay: 6,
       opacity: 0,
       duration: 0.9,
         stagger: 0.2,
@@ -227,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
       y: (i) => (i % 2 === 0 ? -100 : 100), // Zigzag based on index
       opacity: 0,
       duration: 1,
-      stagger: 0.5,
+      stagger: 0.2,
       scrollTrigger: {
         trigger: "#zig-element",
         start: "top 80%",
