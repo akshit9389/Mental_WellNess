@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mood Map</title>
+        <link rel="icon" href="assets/favicon.jpeg" sizes="64x64" type="image/png">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"> -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+        <link rel="stylesheet" href="landingpage/assets/style.css">
+        
+        
+</head>
+<body>
+    <%- include("../includes/navbar.ejs")%>
+    <% if (messages.success) { %>
+        <div class="flash-message success">
+            <span><%= messages.success %></span>
+            <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+    <% } %>
+    
+    <% if (messages.error) { %>
+        <div class="flash-message error">
+            <span><%= messages.error %></span>
+            <button class="close-btn" onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+    <% } %>
+    
+    <div class="container">
+        <%- body%>
+    </div>
+
+
+    <%- include("../includes/footer")%>
+    <script src="landingpage/assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<% layout('/layouts/bt') %>
+  <body>
+    <div class="row mt-3">
+      <div class="col-8 offset-2">
+
+    <h2><b>Listing Details </b></h2>
+      
+    <div class="card" >
+      <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing image">
+      <div class="card-body">
+        <h5 class="card-title mt-3"><b><%= listing.title %></b></h5>
+        <p class="card-text mb-1"><%= listing.description %></p>
+        <p class="card-text mb-1">&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
+        <p class="card-text mb-1"><%= listing.location %></p>
+        <p class="card-text mb-1"><%= listing.country %></p>
+      </div>
+    </div>
+    
+
+    <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-danger offset-5">Edit this Listing</a>
+    <br /><br />
+    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE" >
+      <button class="btn btn-outline-dark mb-3 offset-5">Delete this listing</button>
+    </form>
+
+  </div>
+</div>
+  </body>
