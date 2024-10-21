@@ -139,6 +139,14 @@ app.get("/feedback", (req, res) => {
   res.render('users/feedback.ejs');
 });
 
+app.get("/quizzes", (req, res) => {
+  res.render('users/quizzes.ejs');
+});
+
+app.get("/stats", (req, res) => {
+  res.render('users/stats.ejs');
+});
+
   
 app.listen(8080, () => {
     console.log("server is listening to port 8080");
