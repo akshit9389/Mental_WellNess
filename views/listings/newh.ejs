@@ -1,0 +1,74 @@
+<% layout('/layouts/bt') %>
+<body>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Create a New Healing Session</h3>
+      <form method="POST" action="/healings" novalidate class="needs-validation">
+        <!-- Healing Session Name -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Club Name</label>
+          <input name="healing[title]" placeholder="Enter Club name" type="text" class="form-control" required />
+          <div class="valid-feedback">Session name looks good</div>
+          <div class="invalid-feedback">Please enter session name</div>
+        </div>
+
+        <!-- Healing Session Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            name="healing[description]"
+            placeholder="Enter description"
+            class="form-control"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please enter description</div>
+        </div>
+
+        <!-- Image URL for Healing Session -->
+        <div class="mb-3">
+          <label for="image" class="form-label">Image URL</label>
+          <input
+            name="healing[image.url]"
+            placeholder="Enter image URL/Link"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter image URL</div>
+        </div>
+
+        <!-- Price for Healing Session -->
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Number of people</label>
+            <input name="healing[price]" placeholder="Enter Number of people" class="form-control" required />
+            <div class="invalid-feedback">Please enter valid price</div>
+          </div>
+
+          <!-- Healing Method -->
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="healing[country]" placeholder="Country" type="text" class="form-control" required />
+            <div class="invalid-feedback">Please enter healing method</div>
+          </div>
+        </div>
+
+        <!-- Location for Healing Session -->
+        <div class="mb-3">
+          <label for="location" class="form-label" required>Location</label>
+          <input
+            name="healing[location]"
+            placeholder="Enter location"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter valid location</div>
+        </div>
+
+        <br>
+        <button class="btn btn-outline-danger mt-3 mb-5 add-btn">Add Healing Session</button>
+      </form>
+    </div>
+  </div>
+</body>

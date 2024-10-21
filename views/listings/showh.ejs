@@ -1,0 +1,29 @@
+<% layout('/layouts/bt') %>
+<body>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h2><b>Healing Session Details</b></h2>
+
+      <!-- Healing Session Card -->
+      <div class="card">
+        <img src="<%= healing.image.url %>" class="card-img-top show-img" alt="healing session image">
+        <div class="card-body">
+          <h5 class="card-title mt-3"><b><%= healing.title %></b></h5>
+          <p class="card-text mb-1"><%= healing.description %></p>
+          <p class="card-text mb-1">&#8377; <%= healing.price.toLocaleString("en-IN") %></p>
+          <p class="card-text mb-1"><%= healing.location %></p>
+          <p class="card-text mb-1"><%= healing.country %></p>
+        </div>
+      </div>
+
+      <!-- Edit Healing Session Button -->
+      <a href="/healings/<%= healing._id %>/edit" class="btn btn-outline-danger offset-5">Edit this Session</a>
+      <br /><br />
+
+      <!-- Delete Healing Session Button -->
+      <form method="POST" action="/healings/<%= healing._id %>?_method=DELETE">
+        <button class="btn btn-outline-dark mb-3 offset-5">Delete this Session</button>
+      </form>
+    </div>
+  </div>
+</body>
