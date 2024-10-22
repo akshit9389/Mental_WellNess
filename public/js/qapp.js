@@ -113,49 +113,53 @@ function showCategoryWiseResults(categoryScores) {
     titleEl.setAttribute("id", "results-h1");
     mainEl.appendChild(titleEl);
 
-//     // Create a section to display category-wise scores
-// let resultsDiv = document.createElement("div");
-// resultsDiv.setAttribute("class", "category-scores");
-// mainEl.appendChild(resultsDiv);
+    // Create a section to display category-wise scores
+let resultsDiv = document.createElement("div");
+resultsDiv.setAttribute("class", "category-scores");
+mainEl.appendChild(resultsDiv);
 
-// // Create another div for the first half of the category scores
-// let resultsDiv1 = document.createElement("div");
-// resultsDiv1.setAttribute("class", "category-scores1");
-// resultsDiv.appendChild(resultsDiv1);
+// Create another div for the first half of the category scores
+let resultsDiv1 = document.createElement("div");
+resultsDiv1.setAttribute("class", "category-scores1");
+resultsDiv.appendChild(resultsDiv1);
 
-// // Create another div for the second half of the category scores
-// let resultsDiv2 = document.createElement("div");
-// resultsDiv2.setAttribute("class", "category-scores2"); // Different class for the second half
-// resultsDiv.appendChild(resultsDiv2);
+// Create another div for the second half of the category scores
+let resultsDiv2 = document.createElement("div");
+resultsDiv2.setAttribute("class", "category-scores2"); // Different class for the second half
+resultsDiv.appendChild(resultsDiv2);
 
-// // Get the category keys and split them into two halves
-// let categoryKeys = Object.keys(categoryScores);
-// let halfLength = Math.ceil(categoryKeys.length / 2);
+// Get the category keys and split them into two halves
+let categoryKeys = Object.keys(categoryScores);
+let halfLength = Math.ceil(categoryKeys.length / 2);
 
-// // First half of the categories
-// for (let i = 0; i < halfLength; i++) {
-//     let category = categoryKeys[i];
-//     let categoryScoreEl = document.createElement("h5");
-//     categoryScoreEl.innerText = `${category}: ${categoryScores[category].toFixed(2)}%`;
-//     resultsDiv1.appendChild(categoryScoreEl); // Append the first half to resultsDiv1
-// }
+// First half of the categories
+for (let i = 0; i < halfLength; i++) {
+    let category = categoryKeys[i];
+    let categoryScoreEl = document.createElement("h5");
+    categoryScoreEl.innerText = `${category}: ${categoryScores[category].toFixed(2)}%`;
+    resultsDiv1.appendChild(categoryScoreEl); // Append the first half to resultsDiv1
+}
 
-// // Second half of the categories
-// for (let i = halfLength; i < categoryKeys.length; i++) {
-//     let category = categoryKeys[i];
-//     let categoryScoreEl = document.createElement("h5");
-//     categoryScoreEl.innerText = `${category}: ${categoryScores[category].toFixed(2)}%`;
-//     resultsDiv2.appendChild(categoryScoreEl); // Append the second half to resultsDiv2
-// }
+// Second half of the categories
+for (let i = halfLength; i < categoryKeys.length; i++) {
+    let category = categoryKeys[i];
+    let categoryScoreEl = document.createElement("h5");
+    categoryScoreEl.innerText = `${category}: ${categoryScores[category].toFixed(2)}%`;
+    resultsDiv2.appendChild(categoryScoreEl); // Append the second half to resultsDiv2
+}
 
-//     resultsDiv.style.display = 'flex';
-    //     resultsDiv.style.justifyContent = 'space-between';
+    resultsDiv.style.display = 'flex';
+    resultsDiv.style.justifyContent = 'space-between';
+    resultsDiv.style.alignItems = 'center';
+    resultsDiv.style.width = '100%';
+    resultsDiv.style.gap = '3vw';
     
+
 function predictMood(depression, generalAnxiety, socialAnxiety, adhd, genderDysphoria, ptsd) {
     // Create a section to display category-wise scores
-    let resultsDiv = document.createElement("div");
-    resultsDiv.setAttribute("class", "category-scores");
-    document.body.appendChild(resultsDiv);
+    // let resultsDiv = document.createElement("div");
+    // resultsDiv.setAttribute("class", "category-scores");
+    // document.body.appendChild(resultsDiv);
 
     // Define the categories and percentages
     const categories = [
@@ -168,11 +172,11 @@ function predictMood(depression, generalAnxiety, socialAnxiety, adhd, genderDysp
     ];
 
     // Display each category and its score
-    categories.forEach(category => {
-        let categoryScoreEl = document.createElement("h5");
-        categoryScoreEl.innerText = `${category.name}: ${category.score.toFixed(2)}%`;
-        resultsDiv.appendChild(categoryScoreEl);
-    });
+    // categories.forEach(category => {
+    //     let categoryScoreEl = document.createElement("h5");
+    //     categoryScoreEl.innerText = `${category.name}: ${category.score.toFixed(2)}%`;
+    //     resultsDiv.appendChild(categoryScoreEl);
+    // });
 
     // Mood prediction logic based on weighted scores
     let totalWeightedScore = 0;
@@ -203,6 +207,10 @@ function predictMood(depression, generalAnxiety, socialAnxiety, adhd, genderDysp
     let moodEl = document.createElement("h3");
     moodEl.innerText = `Predicted Mood: ${mood}`;
     resultsDiv.appendChild(moodEl);
+
+    moodEl.style.border = "2px solid green";
+    moodEl.style.background = 'linear-gradient(135deg, #bcf1a1, #f0f0f0)';
+    moodEl.style.padding = "1vw";
 
     // Suggestions based on the predicted mood
     let suggestionsEl = document.createElement("div");
@@ -262,7 +270,12 @@ function predictMood(depression, generalAnxiety, socialAnxiety, adhd, genderDysp
 }
 
 // Example usage
-// predictMood(35, 12, 8, 10, 5, 16);  // Pass the percentage scores for each category
+predictMood(3, 2, 8, 1, 5, 1);  // Pass the percentage scores for each category
+
+    
+    // predictMood(categoryScores[0], categoryScores[1], categoryScores[2], categoryScores[3], categoryScores[4], categoryScores[5]);
+
+
 
 
     
