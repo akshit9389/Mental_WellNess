@@ -28,8 +28,8 @@
 
 .loader h1 {
     font-family: EuroDemi;
-    color: gray;
-    font-size: 5vw;
+    color: #333;
+    font-size: 7vw;
     position: absolute;
     opacity: 0;
     animation-name: load;
