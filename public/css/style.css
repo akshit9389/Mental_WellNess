@@ -3,8 +3,11 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: rgb(232, 245, 232) !important;
 }
-
+.bord{
+    border-radius: 1rem !important;
+}
 .container{
     flex: 1;
 }
@@ -97,4 +100,6 @@ body{
 .show-img{
     height: 40vh;
 }
-
+.nav-link{
+    color: white !important;
+}

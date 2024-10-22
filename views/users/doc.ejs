@@ -5,19 +5,19 @@
     <!-- <form method="GET" action="/listings/new">
       <button>Create New Listing</button>
     </form> -->
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
         <% for(let listing of allListings) { %>
             <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card" >
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
+            <div class="card border border-success bord" >
+                <img src="<%= listing.image.url %>" class="card-img bord" alt="listing_image" style="height:20rem">
                 <div class="card-img-overlay"></div>
-                <div class="card-body">
+                <div class="card-body ">
                   <div class="row">
-                  <p class="card-text col-md-8"><b><%= listing.title %></b> <br>
+                  <p class="card-text col-md-8  "><b><%= listing.title %></b> <br>
                     &#8377;<%= listing.price.toLocaleString("en-IN") %>/consultation
                   </p>
                   <form method="GET" action="http://localhost:3030/video" class="col-md-4 z-3 ">
-                    <button class="btn btn-outline-danger mt-3 mb-5 add-btn pr-3 pl-3">Start Call</button>
+                    <button class="btn btn-outline-danger mt-3 mb-5 add-btn pr-3 pl-3 ">Start Call</button>
                   </form>
                   </div>
                 </div>
