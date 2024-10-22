@@ -429,6 +429,7 @@ z-index: -1;
 .foot {
     font-family: EuroDemi;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
     min-height: 100vh;
