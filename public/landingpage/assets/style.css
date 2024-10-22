@@ -433,7 +433,7 @@ z-index: -1;
     justify-content: flex-end;
     align-items: flex-end;
     min-height: 100vh;
-    background: linear-gradient(135rad, #c7ffb9, #839e7c);
+    background: transparent;
 }
 
 footer {
