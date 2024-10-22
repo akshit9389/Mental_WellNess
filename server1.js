@@ -82,21 +82,35 @@ app.get("/listings", async (req, res) => {
 });
 //New Route
 app.get("/listings/new", async (req, res) => {
-  console.log(req.user);
+
   try {
+    // Check if the user is authenticated and has the correct role
+    console.log(req.user.role);
     if (!req.isAuthenticated()) {
-      req.flash("error", "You must be logged in to create a listing");
+      req.flash("error", "You must be logged in to create a listing.");
       return res.redirect("/login");
-    } else {
+    }
+
+    // Check if the user's role is 'user', restricting them from creating a listing
+    if (req.user.role === 'user') {
+      req.flash("error", "You do not have permission to create a listing.");
+      return res.redirect("/listings");
+    }
+    if (req.user.role === 'doctor') {
       console.log("Successfully accessed /listings/new");
-      res.render("listings/new.ejs");
-    }  
+    res.render("listings/new.ejs");
+    }
+    // If authenticated and the role is allowed, render the 'new listing' form
+    
+
   } catch (error) {
+    // Catch any errors during execution and log them
     console.error("Error while accessing /listings/new:", error);
-    req.flash("error", "An error occurred while creating a listing");
+    req.flash("error", "An error occurred while accessing the 'create listing' page.");
     return res.redirect("/error");
   }
 });
+
 
 
 //Show Route
@@ -156,6 +170,9 @@ app.get("/stats", (req, res) => {
   res.render('users/stats.ejs');
 });
 
+app.get("/yoga", (req, res) => {
+  res.render('users/yoga.ejs');
+});
   
 app.listen(8080, () => {
     console.log("server is listening to port 8080");
