@@ -16,7 +16,7 @@
 .loader {
     height: 100%;
     width: 100%;
-    background: linear-gradient(135deg, #239c05, #83ac6e,#239c05);
+    background: linear-gradient(135deg, #1d8b01, #bcf1a1,#1c8c00);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -28,7 +28,7 @@
 
 .loader h1 {
     font-family: EuroDemi;
-    color: #f0f0f0;
+    color: gray;
     font-size: 5vw;
     position: absolute;
     opacity: 0;
