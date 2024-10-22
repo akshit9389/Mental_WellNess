@@ -102,17 +102,23 @@ navbar {
     width: 100%;
     z-index: 10;
 }
-
+navbar a{
+    white-space: nowrap;
+}
 navbar a img {
     height: 5vw;
     margin-top: 1vw;
     transition: transform 0.2s ease-in-out;
+
 }
 
 navbar a img:hover {
     transform: scale(1.15);
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
+}
+.main-nav{
+    padding-top: 8vw;
 }
 
 .page1,
